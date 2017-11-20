@@ -1,0 +1,301 @@
+/*
+ * Globals
+ */
+
+/* Links */
+/*a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+}
+
+header {
+  background: #007399;
+  width: 100%;
+  -webkit-box-shadow: inset 0 0 1rem rgba(0,0,0,.5);
+          box-shadow: inset 0 0 1rem rgba(0,0,0,.5);
+  margin-bottom: 30px;
+}
+
+.container {
+  background-color: white;
+  margin-top: 20px auto;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering*/ 
+.site-wrapper {
+  width: 100%;
+  height: 80%;  
+  
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+          box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+}
+
+/*
+ * Header
+*/
+
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: bold;
+  color: rgba(255,255,255,.5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255,255,255,.25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+/*
+.navbar{
+  width:90%;
+  display: inline-block;
+  padding-bottom: 40px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+ }
+*/
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: bold;
+}
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 40em) {
+  /* Pull out the header and footer */
+  .masthead {
+    width:100%;
+    position: fixed;
+    top: 0;
+    padding : 0px 100px 10px 100px ;
+    margin: 50px;
+  }
+
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+/*
+ * Registration From
+ */
+
+.form-signin {
+  max-width: 800px;
+  padding: 10px;
+  margin: 35px auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn {
+  font-size: 25px;
+  background: #007399;
+  border-color: #007399;
+}
+
+
+/* Feed Layout */
+
+.wrapper {
+  width: 90%;
+  margin-top: 20px;
+}
+
+/*
+.pin {
+  display: inline-block;
+  background: #FEFEFE;
+  border: 2px solid #FAFAFA;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 20px 2px 15px;
+  margin-top: 20px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+  clear : both;
+  text-align: left;
+}
+*/
+/*
+.pin p {
+  font: 12px/18px Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+*/
+@media (min-width: 960px) {
+  #columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1100px) {
+  #columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+
+
+.pin .legend {
+  width: 40px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  clear: both;
+}
+
+
+/*profil */
+
+
+.profil {
+  width: 5%;
+  max-width: 1100px;
+  min-width: 300px;
+  display: inline;
+  background: #FEFEFE;
+  border: 2px solid #FAFAFA;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 15px 15px 15px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+  float: left;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.profpic {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  clear : both;
+
+}
+
+.profpic p {
+  font: 33px Arial, sans-serif;
+  color: #111;
+  float: left;
+}
+
+.profProp {
+  font: 15px;
+  color: #007399;
+}
+
+.value{
+  color: #333;
+}

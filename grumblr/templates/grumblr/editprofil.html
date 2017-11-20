@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+
+{% block navbar %}
+                <h3 class="masthead-brand"><a href="{% url 'feed' %}">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                      <a class="nav-link " href="{% url 'feed' %}">Home</a>
+                      <a class="nav-link active" href="{% url 'profil' user %}">My profilr</a>
+                    </nav>
+{% endblock navbar %}
+
+{% block content %}
+      <div class="container">
+        <form method="post" action="{% url 'edit' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="profil col-md-12">
+                      <h2>Info</h2>
+                      {% csrf_token %}
+                      {% for field in form %}
+                      <div class="profProp name">{{field.label_tag}}</div>
+                        {{ field }}
+                        {% for error in field.errors %}
+                          {{ error }}
+                        {% endfor %}
+                      {% endfor %}<br>     
+          <button class="btn btn-primary logout" href="{% url 'profil' user %}">Confirm changes</button>  <br>          
+        </form>
+        </div>           
+{% endblock content %}
+

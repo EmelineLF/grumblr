@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+
+{% block navbar %}
+                  <h3 class="masthead-brand"><a href="">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                    <a class="nav-link active" href="{% url 'login' %}">Home</a>
+{% endblock navbar %}
+
+{% block content %}
+
+          <div class="container col-md-5">
+            <form class="form-signin" method="post">
+              <h2 class="form-signin-heading">! An email has been sent</h2>            
+              {% csrf_token %}
+              We sent you an e-mail to confirm your account, please check your inbox.              
+            </form>
+          </div> <!-- /container -->
+
+
+
+{% endblock content %}

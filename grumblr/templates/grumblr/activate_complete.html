@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+
+{% block navbar %}
+                  <h3 class="masthead-brand"><a href="">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                    <a class="nav-link active" href="{% url 'login' %}">Home</a>
+{% endblock navbar %}
+
+{% block content %}
+          {%if user %}
+          <div class="container">
+            <form class="form-signin">
+              <h2 class="form-signin-heading">! Your account has been confirmed, you are now logged</h2>
+            </form>
+          </div>
+          <div class="container">
+              <a class="btn btn-lg btn-primary btn-block" href="{% url 'feed' %}">Go to feed</a>
+          </div> <!-- /container -->
+          {%else %}
+          <div class="container">
+            <form class="form-signin">
+              <h2 class="form-signin-heading">! This link is not working, request a new validation link</h2>
+            </form>
+          </div>
+          {%endif%}
+
+{% endblock content %}

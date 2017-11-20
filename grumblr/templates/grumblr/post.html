@@ -1,0 +1,18 @@
+{% load static %}
+<div class="pin" id="{{post-id}}">
+  <div class="content">
+    <p>
+      <a href="{% url 'profil' p.user%}">
+        <img src="{{p.user.userprofil.picture.url}}">
+      </a>{{p.content}}
+    </p>
+  </div>
+  <div class="legend"><a href="{% url 'profil' p.user %}">{{p.user}}</a><p>{{p.date}}</p></div>
+  <div id='allcomments{{ post_id }}' class='allcomments'></div>
+    <form method="post" action="{% url 'new_comment' post-id %}">
+            {% csrf_token %}
+            {{error}}
+            {{form.content}}
+    <button class="btn btn-primary postbtn" type='submit' name="Comment" value="Comment" onclick='addComment({{post-id}})'> Comment</button>  <br>
+    </form>
+</div>

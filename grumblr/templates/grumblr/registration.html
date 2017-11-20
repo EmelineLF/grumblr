@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block navbar %}               
+                <h3 class="masthead-brand"><a href="{% url 'login' %}">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                      <a class="nav-link active" href="{% url 'login' %}">Home</a>
+                    </nav>
+{% endblock navbar %}
+
+{% block content %}
+           <div class="container col-md-5">
+            <form class="form-signin" method="post" action="{% url 'register' %}">
+              <div class="form-signin-heading"><h2>Start your Grumblr journey</h2></div>
+              <h2>{{error}}</h2>
+              {% csrf_token %}
+              {% for field in form %}
+                {{ field }}
+
+                {% for error in field.errors %}
+                  {{ error }}
+                {% endfor %}
+
+              {% endfor %}
+              <button class="btn btn-lg btn-primary btn-block" type="submit" href="{% url 'feed' %}" >Sign up</button>
+              <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+          </div>
+{% endblock content %}

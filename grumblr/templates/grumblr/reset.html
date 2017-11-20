@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+
+{% block navbar %}
+                  <h3 class="masthead-brand"><a href="">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                    <a class="nav-link active" href="{% url 'login' %}">Home</a>
+{% endblock navbar %}
+
+{% block content %}
+
+          <div class="container col-md-5">
+            <form class="form-signin" method="post" action="{% url 'password_reset' %}">
+              <h2 class="form-signin-heading">! Let us your email address, we'll send you a link to reset your password</h2>            
+              {% csrf_token %}
+              {{ form.email.errors }}
+              <input type="email" id="id_Email" class="form-control" placeholder="Email address" name='email' value='{{ email }}' required autofocus>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" value="Reset password">Send link</button>
+              <input type="hidden" name="next" value="{{ next }}" />                
+            </form>
+          </div> <!-- /container -->
+
+
+
+{% endblock content %}

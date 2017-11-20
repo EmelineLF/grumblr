@@ -1,0 +1,1 @@
+{"id":{{post.id}}, "html":"{{post.html|safe}}", "user":{{post.user}}, "date":{{post.date}},"content":{{post.content}} }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>.Grumblr | Sign up</title>
+    <script src="/static/grumblr/js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="/static/grumblr/js/grumblr.js" type="text/javascript"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+    <link href="{% static 'grumblr/cover.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+    <header>
+            <div class="navbar">                 
+                
+    {% block navbar %}
+    {% endblock %}
+                    </nav>
+             </div>
+          </header>
+
+    {% block content %}
+
+    {% endblock %}
+    </div>
+  </body>
+</html>

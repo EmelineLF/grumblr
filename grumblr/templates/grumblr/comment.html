@@ -1,0 +1,12 @@
+
+<div class="comment">
+    <div class="content">
+        <p>
+            <a href="{% url 'profil' c.user%}">
+            <img src="{{c.user.userprofil.picture.url}}">
+            </a>{{c.content}}
+        </p>
+        </div>
+    <div class="legend"><a href="{% url 'profil' c.user %}">{{c.user}}</a><p>{{c.date}}</p>
+    </div>
+</div>

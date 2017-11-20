@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% load i18n %}
+{% block navbar %}
+                  <h3 class="masthead-brand"><a href="">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                    <a class="nav-link active" href="{% url 'login' %}">Home</a>
+{% endblock navbar %}
+
+{% block content %}
+         {% if validlink %}
+          <div class="container col-md-5">
+            <form class="form-signin" method="post" action="{% url 'password_reset_complete' %}">
+              <h2 class="form-signin-heading">. Enter your new password</h2>            
+              {% csrf_token %}
+              {{ form.new_password1.errors }}
+              <label for="inputPassword1" class="sr-only">Password</label>
+              <input type="password" id="inputPassword1" class="form-control" placeholder="New Password" name='password' value='{{ password1 }}' required>
+              {{ form.new_password2.errors }}
+              <label for="inputPassword2" class="sr-only">Password</label>
+              <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm New Password" name='password' value='{{ password2 }}' required>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" value="Change">Change password</button>
+              <input type="hidden" name="next" value="{{ next }}" />                
+            </form>
+          </div> <!-- /container -->
+          {% else %}
+        <h1>Password reset unsuccessful</h1>
+        <p>The password reset link was invalid, please request a new reset link.</p>
+    {% endif %}
+
+
+{% endblock content %}

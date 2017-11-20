@@ -1,0 +1,30 @@
+{% extends "baseProfil.html" %}
+
+{% block navbar %}
+                <h3 class="masthead-brand"><a href="{% url 'feed' %}">. Grumblr</a></h3>
+                    <nav class="nav nav-masthead">
+                      <a class="nav-link " href="{% url 'feed' %}">Home</a>
+                      <a class="nav-link active" href="{% url 'profil' user %}">My profilr</a>
+                    </nav>
+{% endblock navbar %}
+
+{% block profil %}
+      <div class="container">
+        
+        <div class="profil col-md-3">
+                    <h2>Info</h2>
+                    <img src=" {{profile.picture.url}} ">                     
+                    <div class="profProp name">Username</div><div class="value">{{username}}</div><br>
+                    <div class="profProp name">Name </div>  <div class="value">{{username.first_name}} {{username.last_name}}</div><br>
+                    <div class="profProp name">Email Address</div>  <div class="value">{{username.email}}</div><br>
+                    <div class="profProp name">Age</div>  <div class="value">{{profile.age}}</div><br> 
+                    <div class="profProp name">Bio</div>  <div class="value">{{profile.bio}}</div><br>
+
+        <a class="btn btn-primary logout" href="{% url 'edit' %}">Edit profil</a><br>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+        <button class="btn btn-primary logout" href="{% url 'logout' %}">Log out</button>  <br>
+        </form>
+        </div>           
+{% endblock profil %}
+

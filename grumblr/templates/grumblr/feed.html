@@ -1,0 +1,62 @@
+{% extends "template.html" %}
+
+{% block navbar %}
+            <h3 class="masthead-brand"><a href="">. Grumblr</a></h3>
+                  <nav class="nav nav-masthead">
+                    <a class="nav-link active" href="">Home</a>
+                    <a class="nav-link" href="{% url 'profil' user %}">My profilr</a>
+{% endblock navbar %}
+
+{% block content %}
+        <div class="wrapper col-md-10">
+          <form method="post">
+            {% csrf_token %}
+            {{error}}
+            {{form.content}}
+            <button class="btn btn-primary postbtn" type='submit' name="Post" value="Post" id="postbtn">Post</button>  <br>
+            </form>
+          <form method="post" >
+            {% csrf_token %}
+            <button class="btn btn-lg btn-primary btn-block col-md-3 " type='submit' name="follower" value="Follower">Show people I follow</button>
+            <button class="btn btn-lg btn-primary btn-block col-md-3" type='submit' name="all" value="All">Show everyone</button>          
+          </form>
+          <div id=posts class="posts">
+            {%for p in posts %} 
+            <div class="pin" id={{p.id}}>
+                <div class="content">
+                  <p>
+                      <a href="{% url 'profil' p.user%}">
+                        <img src="{{p.user.userprofil.picture.url}}">
+                      </a>{{p.content}}
+                  </p>
+                </div>
+                <div class="legend"><a href="{% url 'profil' user %}">{{p.user}}</a><p>{{p.date}}</p>
+                </div>
+               {%for c in p.comments.all %}
+                <div class="comment">
+                  <div class="content">
+                    <p>
+                        <a href="{% url 'profil' user%}">
+                          <img src="{{user.userprofil.picture.url}}">
+                        </a>{{c.text}}
+                    </p>
+                  </div>
+                  <div class="legend"><a href="{% url 'profil' user %}">{{c.user}}</a><p>{{c.date}}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            <form method="post" action="{% url 'new_comment' p.id %}">
+            {% csrf_token %}
+            {{error}}
+            {{form.text}}
+            <button class="btn btn-primary postbtn" type='submit' name="Comment" value="Comment">Comment</button>  <br>
+            </form>
+            </div>
+          {% endfor %}
+          </div>
+          <!-- <div id="allposts"></div> -->
+
+          
+          </div>
+           
+{% endblock content %}

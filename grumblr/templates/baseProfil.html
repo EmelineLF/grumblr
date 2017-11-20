@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>.Grumblr | Sign up</title>
+    <script src="/static/grumblr/js/grumblr.js" type="text/javascript"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+    <link href="{% static 'grumblr/cover.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <header>
+            <div class="navbar">
+  {% block navbar %}
+          
+  {% endblock navbar %}
+                </nav>
+             </div>
+          </header>
+
+  {% block profil %}
+
+  {% endblock profil %}   
+      
+        <div class="wrapper col-md-8">
+          <h2>Posts</h2>
+          {%for p in posts %} 
+          <div class="pin">
+            <div class="content"><p>{{p.content}}</p></div>
+           <div class="legend"><a href="{% url 'profil' p.user %}">{{p.user}}</a><p>{{p.date}}</p></div>
+          {%for c in p.comments.all %}
+               <div class="comment">
+                <div class="content">
+                  <p>
+                      <a href="{% url 'profil' c.user%}">
+                        <img src="{{c.user.userprofil.picture.url}}">
+                      </a>{{c.content}}
+                  </p>
+                </div>
+               <div class="legend"><a href="{% url 'profil' c.user %}">{{c.user}}</a><p>{{c.date}}</p></div></div>
+              {% endfor %}
+              </div>
+          {% endfor %}
+        </div>
+
+        
+
+        </div>
+      </div>
+      </div>
+  </body>
+</html>
